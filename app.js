@@ -1,4 +1,4 @@
-// Dynamic Price(v12) with new database
+// Hosted app at https://desolate-sands-12100.herokuapp.com/campgrounds
 
 var express       = require("express"),
     app           = express(),
@@ -18,9 +18,11 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),                
     indexRoutes      = require("./routes/index")                
 
-var url = process.env.DATABASEURL ||// mongodb://localhost/yelp_camp_v12",{ useNewUrlParser: true });
-
-mongoose.connect(url, {
+// this still needs to be fixed, the "var url" seems to cause and error and not allow a connection
+// var url = process.env.DATABASEURL // mongodb://localhost/yelp_camp_v12",{ useNewUrlParser: true });
+// to set up the cloud9 env var, enter "export DATABASEURL=mongodb://localhost/yelp_camp_v12" into the terminal
+// console.log(process.env.DATABASEURL); to check if DATABASEURL works
+mongoose.connect(process.env.DATABASEURL, {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
